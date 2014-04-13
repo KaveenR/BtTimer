@@ -43,7 +43,15 @@ function stopTimer(){
 function getConf(){
 	bluetoothserial.isEnable(function(){
 		$.mobile.changepage("#btconf");
-		//bluetoothSerial.list()
+		bluetoothSerial.list(function (data) {
+			for(var i=0;i<data.length;i++){
+				$("#devices").add("<a href='#' onClick='connect_bt('"+data[i].address
+				+"')' data-role='button' data-icon='plus' data-iconpos='right'>"+
+				data[i].name+"</a>");
+			}
+		},function (){
+			window.plugins.toast.showLongBottom("Failed retriving device list");
+		});
 	},
 	function(){
 		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
