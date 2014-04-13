@@ -50,18 +50,18 @@ function goConf(){
 				data[i].name+"</a>");
 			}
 		},function (){
-			window.plugins.toast.showLongBottom("Failed retriving device list");
+			alert("Failed retriving device list");
 		});
 	},
 	function(){
-		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
+		alert("Turn On Bluetooth First");
 	});
 }
 function connect_bt(mac){
 	bluetoothSerial.connect(mac,function(){
-		window.plugins.toast.showLongBottom("connected");
+		alert("connected");
 	},function(){
-		window.plugins.toast.showLongBottom("Error connected");
+		alert("Error connected");
 	});
 }
 //onLoad
