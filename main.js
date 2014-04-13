@@ -40,6 +40,15 @@ function stopTimer(){
 	clearInterval(timer);
 	timer = null;
 }
+function getConf(){
+	bluetoothserial.isEnable(function(){
+		$.mobile.changepage("#btconf");
+		//bluetoothSerial.list()
+	},
+	function(){
+		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
+	});
+}
 //onLoad
 $(document).ready(function(e) {
 });
