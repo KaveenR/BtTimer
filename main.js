@@ -43,22 +43,15 @@ function stopTimer(){
 function goConf(){
 	bluetoothserial.isEnable(function(){
 		$.mobile.changepage("#btconf");
-		bluetoothSerial.list(function (data) {
-			for(var i=0;i<data.length;i++){
-				$("#devices").add("<a href='#' onClick='connect_bt('"+data[i].address
-				+"')' data-role='button' data-icon='plus' data-iconpos='right'>"+
-				data[i].name+"</a>");
-			}
-		},function (){
-			alert("Failed retriving device list");
-		});
+		$("#mac").val(localStorage.getItem("mac"));
 	},
 	function(){
 		alert("Turn On Bluetooth First");
 	});
 }
-function connect_bt(mac){
-	bluetoothSerial.connect(mac,function(){
+function connect_bt(){
+	localStorage.setItem("mac",$("#mac").val);
+	bluetoothSerial.connect($("#mac").val(),function(){
 		alert("connected");
 	},function(){
 		alert("Error connected");
