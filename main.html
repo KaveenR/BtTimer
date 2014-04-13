@@ -1,10 +1,35 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
+<meta charset="UTF-8">
+<title>tTimer</title>
+<script src="JS/jquery-2.1.0.min.js"></script>
+<script src="JS/jquery.mobile-1.4.2.min.js"></script>
+<script src="main.js"></script>
+<link rel="stylesheet" href="JS/jquery.mobile-1.4.2.min.css" type="text/css"/>
+<link rel="stylesheet" href="JS/jquery.mobile.structure-1.4.2.min.css" type="text/css"/>
+<link rel="stylesheet" href="JS/jquery.mobile.external-png-1.4.2.min.css" type="text/css"/>
 </head>
 
 <body>
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>BtTimer</h1>
+  </div>
+  <div data-role="content">
+  <center><h1 id="timecode">0 : 0</h1></center>
+  <br>
+    <a href="#" onClick="stopTimer()" data-role="button" data-icon="check" data-iconpos="left" id="stopbut">Stop Timer</a>
+    <br>
+  <div data-role="controlgroup">
+  <a href="#" onClick="startTimer(120,60,90)" data-role="button">Table Topics</a>
+  <a href="#" onClick="stopTimer(360,240,300)" data-role="button">Prepared Speeches</a>
+  <a href="#" onClick="stopTimer(180,130,135)" data-role="button">Evaluation</a>
+  </div>
+  </div>
+  <div data-role="footer" data-position="fixed" align="center">
+  <h4>Kaveen</h4>
+  </div>
+</div>
 </body>
 </html>
