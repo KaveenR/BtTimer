@@ -40,7 +40,7 @@ function stopTimer(){
 	clearInterval(timer);
 	timer = null;
 }
-function getConf(){
+function goConf(){
 	bluetoothserial.isEnable(function(){
 		$.mobile.changepage("#btconf");
 		bluetoothSerial.list(function (data) {
