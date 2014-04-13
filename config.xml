@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.krapps.BtTimer"
+    version   = "0.0.1">
+
+<name>BtTimer</name>
+
+<description>
+BtTimer
+</description>
+
+<author href="https://geeknirvana.org" email="u.k.k.rodrigo@gmail.com">
+Kaveen Rodrigo
+</author>
+<feature name="http://api.phonegap.com/1.0/network"/>
+<preference name="target-device" value="universal" />
+<preference name="orientation" value="potrait" />
+<preference name="KeepRunning" value="false"/>
+<access origin="*" />
+<preference name="LoadingDialog" value="BtTimer,Loading..."/>
+</widget>
