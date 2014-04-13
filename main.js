@@ -57,6 +57,13 @@ function getConf(){
 		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
 	});
 }
+function connect_bt(mac){
+	bluetoothSerial.connect(mac,function(){
+		window.plugins.toast.showLongBottom("connected");
+	},function(){
+		window.plugins.toast.showLongBottom("Error connected");
+	});
+}
 //onLoad
 $(document).ready(function(e) {
 });
