@@ -61,6 +61,7 @@ $(document).on("pageshow","#btconf",function(){
 	});
 });
 function connect_b(id) {
+	alert(id);
 	bluetoothSerial.connect(id,function(){
 		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
