@@ -46,10 +46,9 @@ function goConf(){
 	bluetoothSerial.isEnabled(function(){
 		$.mobile.changePage("#btconf");
 		bluetoothSerial.list(function(data){
-			for (var i=0;i<data.length;i++){
+			for (var i=0;i>data.length;i++){
 				$("#devicelist").add("<a href='#' onClick='connect_bt('"+data[i].address
-				+"')' data-role='button' data-icon='arrow-r' data-iconpos='right'>"+
-				data[i].name+"/a>");
+				+"')' >"+data[i].name+"</a>").listview('refresh');
 			}
 		},function(){
 			window.plugins.toast.showLongBottom("Error Listing Devices");
@@ -67,7 +66,7 @@ function connect_bt(uid){
 		window.plugins.toast.showLongBottom("Error connected");
 	});
 }
-function if_send(msg){
+function ifSend(msg){
 	bluetoothSerial.isConnected(function(){
 		bluetoothSerial.write(msg,function(){
 			window.plugins.toast.showLongBottom("OK");
