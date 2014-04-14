@@ -47,8 +47,8 @@ $(document).on("pageshow","#btconf",function(){
 		bluetoothSerial.list(function(data){
 			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
-				$("#devicelist").append("<li><a href='connect_bt('"+data[i].id
-				+"')'>"+data[i].name+"</a></li>").listview('refresh');
+				$("#devicelist").append("<li>"+data[i].name+"<br><sub>"+data[i].id
+				+"</sub></li>").listview('refresh');
 			}
 		},function(){
 			$("#devicelist").html("");
@@ -60,15 +60,14 @@ $(document).on("pageshow","#btconf",function(){
 		$.mobile.changePage("#page");
 	});
 });
-$("#test").on('click', 'li', function(){
-	bluetoothSerial.connect(uid,function(){
+$("#devicelist").on('click', 'li', function(){
+	bluetoothSerial.connect($(this).attr("sub"),function(){
 		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
 	},function(){
 		window.plugins.toast.showLongBottom("Error connected");
 	});
 });
-}
 function ifSend(msg){
 	bluetoothSerial.isConnected(function(){
 		bluetoothSerial.write(msg,function(){
