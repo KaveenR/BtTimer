@@ -5,17 +5,19 @@ var timer = null; //global variable for timer
 function tick(total,green,orange){
 	seconds += 1;
 	$("#timecode").html(read_sec(seconds));
-	console.log(seconds);
 	switch (seconds){
 		case green:
 			$("#page").attr("style","background-color:#0C0");
+			ifSend("G");
 			break;
 		case orange:
 			$("#page").attr("style","background-color:#FF9900");
+			ifSend("O");
 			break;
 		case total:
 			$("#page").attr("style","background-color:#FF0000");
 			break;
+			ifSend("R");
 	}
 }
 //seconds to reaable
@@ -42,19 +44,38 @@ function stopTimer(){
 }
 function goConf(){
 	bluetoothSerial.isEnabled(function(){
-		$.mobile.changepage("#btconf");
-		$("#mac").val(localStorage.getItem("mac"));
+		$.mobile.changePage("#btconf");
+		bluetoothSerial.list(function(data){
+			for (var i=0;i<data.length;i++){
+				$("#devicelist").add("<a href='#' onClick='connect_bt('"+data[i].address
+				+"')' data-role='button' data-icon='arrow-r' data-iconpos='right'>"+
+				data[i].name+"/a>");
+			}
+		},function(){
+			window.plugins.toast.showLongBottom("Error Listing Devices");
+		});
 	},
 	function(){
-		alert("Turn On Bluetooth First");
+		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
 	});
 }
-function connect_bt(){
-	localStorage.setItem("mac",$("#mac").val);
-	bluetoothSerial.connect($("#mac").val(),function(){
-		alert("connected");
+function connect_bt(uid){
+	bluetoothSerial.connect(uid,function(){
+		window.plugins.toast.showLongBottom("connected");
+		$.mobile.changePage("#page");
 	},function(){
-		alert("Error connected");
+		window.plugins.toast.showLongBottom("Error connected");
+	});
+}
+function if_send(msg){
+	bluetoothSerial.isConnected(function(){
+		bluetoothSerial.write(msg,function(){
+			window.plugins.toast.showLongBottom("OK");
+		},function(){
+			window.plugins.toast.showLongBottom("FAILED");
+		});
+	},function(){
+		window.plugins.toast.showLongBottom("NOT CONNECTED");
 	});
 }
 //onLoad
