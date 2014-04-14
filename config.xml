@@ -7,7 +7,7 @@
 <name>BtTimer</name>
 
 <description>
-BtTimer
+Speech Timer with Bluetooth gateway
 </description>
 
 <author href="https://geeknirvana.org" email="u.k.k.rodrigo@gmail.com">
@@ -20,6 +20,7 @@ Kaveen Rodrigo
 <preference name="target-device" value="universal" />
 <preference name="orientation" value="potrait" />
 <preference name="KeepRunning" value="false"/>
+<icon src="btr.png"/>
 <access origin="*" />
 <preference name="LoadingDialog" value="BtTimer,Loading..."/>
 </widget>
