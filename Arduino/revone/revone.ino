@@ -16,27 +16,35 @@ void loop()
     mc = myserial.read();
     if (mc==71){
       Serial.write("Green");
-      g=toggle(g);
-      setstat(g,gp);
+      g=true;
+      o,r=false;
+      update();
     }
     if (mc==79){
       Serial.write("Orange");
-      o=toggle(o);
-      setstat(o,op);
+      o=true;
+      g,r=false;
+      update();
     }
     if (mc==82){
       Serial.write("Red");
-      r=toggle(r);
-      setstat(r,rp);
+      r=true;
+      g,o=false;
+      update();
     }
+    if (mc==63){ //?
+      Serial.write("RESET");
+      g= false;
+      o = false;
+      r = false;
+      update();
   }
 }
-boolean toggle(boolean a){
-  if (a == false){
-    return true;
-  }else{
-    return false;
-  }
+}
+void update(){
+  setstat(g,gp);
+  setstat(o,op);
+  setstat(r,rp);
 }
 void setstat(boolean a,int b){
   if (a == true){
@@ -44,4 +52,4 @@ void setstat(boolean a,int b){
   }else{
     pinMode(b,LOW);
   }
-}  
+}
