@@ -48,9 +48,8 @@ $(document).on("pageshow","#btconf",function(){
 			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
 				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].id
-				+"')' >"+data[i].name+"</a></li>").listview('refresh');
+				+"')>"+data[i].name+"</a></li>").listview('refresh');
 			}
-			connect_bt("20:13:07:26:09:92");
 		},function(){
 			$("#devicelist").html("");
 			window.plugins.toast.showLongBottom("Error Listing Devices");
@@ -78,6 +77,13 @@ function ifSend(msg){
 		});
 	},function(){
 		window.plugins.toast.showLongBottom("NOT CONNECTED");
+	});
+}
+function disconnect_b(){
+	bluetoothSerial.disconnect(function(){
+		window.plugins.toast.showLongBottom("Disconnected");
+	},function(){
+		window.plugins.toast.showLongBottom("FAILED DISCONNECTING");
 	});
 }
 //onLoad

@@ -17,7 +17,8 @@
 <div data-role="page" id="page">
   <div data-role="header" data-position="fixed">
     <h1>BtTimer</h1>
-  <a href="#btconf" data-role="button" data-icon="gear" data-iconpos="left">Connect</a>
+  <a href="#btconf" data-role="button" data-icon="gear" data-iconpos="left">Bluetooth</a>
+  <a href="#about" data-role="button" data-icon="info" data-iconpos="right">About</a>
   </div>
   <div data-role="content">
   <center><h1 id="timecode">0 : 0</h1></center>
@@ -37,9 +38,37 @@
     <h1>Bluetooth Config</h1>
   </div>
   <div data-role="content">
+  <a href="#" onClick="disconnect_b()"data-role="button" data-icon="delete" data-iconpos="right">Disconnect</a>
     <ul data-role="listview" data-inset="true" id="devicelist">
     </ul>
   </div>
+</div>
+<div data-role="page" id="about">
+  <div data-role="header" data-position="fixed">
+  	<a href="#page" data-role="button" data-icon="arrow-l" data-iconpos="left">back</a>
+    <h1>About</h1>
+  </div>
+  <div data-role="content">
+  <center>
+  <p>Initialy Written By Kaveen Rodrigo</p>
+  <p><b>This Program is Open Source under The GPL Licence</b></p>
+  <p align="justify" style="padding:10px">Copyright (C) 2014  Kaveen Rodrigo
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/ </p>
+    <p><i>Available on <b>Github KaveenR/BtTimer</b></i></p>
+    </center></div>
+  
 </div>
 
 </body>
