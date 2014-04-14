@@ -45,7 +45,7 @@ function stopTimer(){
 $(document).on("pageshow","#btconf",function(){
 	bluetoothSerial.isEnabled(function(){
 		bluetoothSerial.list(function(data){
-			for (var i=0;data.length<i;i++){
+			for (var i=0;data.length>i;i++){
 				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].address
 				+"')' >"+data[i].name+"</a></li>").listview('refresh');
 			}
