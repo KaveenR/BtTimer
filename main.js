@@ -47,7 +47,7 @@ $(document).on("pageshow","#btconf",function(){
 		bluetoothSerial.list(function(data){
 			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
-				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].address
+				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].id
 				+"')' >"+data[i].name+"</a></li>").listview('refresh');
 			}
 		},function(){
@@ -57,11 +57,11 @@ $(document).on("pageshow","#btconf",function(){
 	},
 	function(){
 		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
-		$.bobile.changePage("#page");
+		$.mobile.changePage("#page");
 	});
 });
 function connect_bt(uid){
-	bluetoothSerial.connectInsecure(uid,function(){
+	bluetoothSerial.connect(uid,function(){
 		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
 	},function(){
