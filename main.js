@@ -1,4 +1,5 @@
 //main.js
+var bluetoothSerial = cordova.require('bluetoothSerial');
 var seconds =0; //timer counter
 var timer = null; //global variable for timer
 // Timing Circuits
