@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
     id        = "com.krapps.BtTimer"
-    version   = "0.0.1">
+    version   = "0.1.0">
 
 <name>BtTimer</name>
 
@@ -16,6 +16,7 @@ Kaveen Rodrigo
 <feature name="http://api.phonegap.com/1.0/network"/>
 <gap:plugin name="com.megster.cordova.bluetoothserial" version="0.2.2" />
 <gap:plugin name="nl.x-services.plugins.toast" version="1.0" />
+<gap:plugin name="nl.x-services.plugins.insomnia" version="3.0" />
 <preference name="target-device" value="universal" />
 <preference name="orientation" value="potrait" />
 <preference name="KeepRunning" value="false"/>

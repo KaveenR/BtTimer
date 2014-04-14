@@ -29,6 +29,7 @@ function read_sec(src){
 }
 //Timer functions
 function startTimer(total,green,orange){
+	window.plugins.insomnia.keepAwake();
 	$("#page").attr("style","background-color:");
 	if (seconds != null){
 		stopTimer();
@@ -40,6 +41,7 @@ function startTimer(total,green,orange){
 }
 
 function stopTimer(){
+	window.plugins.insomnia.allowSleepAgain();
 	clearInterval(timer);
 	timer = null;
 }
@@ -63,7 +65,6 @@ $(document).on("pageshow","#btconf",function(){
 	});
 });
 function connect_b(id) {
-	alert(id);
 	bluetoothSerial.connect(devices[id].address,function(){
 		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
