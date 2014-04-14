@@ -17,7 +17,8 @@
 <div data-role="page" id="page">
   <div data-role="header">
     <h1>BtTimer</h1>
-  <a href="#" onClick="goConf()" data-role="button" data-icon="gear" data-iconpos="left">Connect</a>  </div>
+  <a href="#btconf" data-role="button" data-icon="gear" data-iconpos="left">Connect</a>
+  </div>
   <div data-role="content">
   <center><h1 id="timecode">0 : 0</h1></center>
   <br>
@@ -38,8 +39,10 @@
     <h1>Bluetooth Config</h1>
   </div>
   <div data-role="content">
-    <div data-role="controlgroup" id="devicelist">
-    </div>
+    <ul data-role="listview" data-inset="true" id="devicelist">
+    </ul>
+<div data-role="controlgroup" id="devicelist">
+</div>
     <ul data-role="listview" data-inset="true" id="devicelist">
     </ul>
   </div>

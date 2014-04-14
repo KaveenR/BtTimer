@@ -16,8 +16,8 @@ function tick(total,green,orange){
 			break;
 		case total:
 			$("#page").attr("style","background-color:#FF0000");
-			break;
 			ifSend("R");
+			break;
 	}
 }
 //seconds to reaable
@@ -42,13 +42,12 @@ function stopTimer(){
 	clearInterval(timer);
 	timer = null;
 }
-function goConf(){
+$(document).on("pageshow","#btconf",function(){
 	bluetoothSerial.isEnabled(function(){
-		$.mobile.changePage("#btconf");
 		bluetoothSerial.list(function(data){
 			for (var i=0;data.length<i;i++){
-				$("#devicelist").append("<a href='#' onClick='connect_bt('"+data[i].address
-				+"')' >"+data[i].name+"</a>").listview('refresh');
+				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].address
+				+"')' >"+data[i].name+"</a></li>").listview('refresh');
 			}
 		},function(){
 			window.plugins.toast.showLongBottom("Error Listing Devices");
@@ -57,7 +56,7 @@ function goConf(){
 	function(){
 		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
 	});
-}
+});
 function connect_bt(uid){
 	bluetoothSerial.connect(uid,function(){
 		window.plugins.toast.showLongBottom("connected");
