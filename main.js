@@ -47,8 +47,8 @@ $(document).on("pageshow","#btconf",function(){
 		bluetoothSerial.list(function(data){
 			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
-				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].id
-				+"')>"+data[i].name+"</a></li>").listview('refresh');
+				$("#devicelist").append("<li><a href='connect_bt('"+data[i].id
+				+"')'>"+data[i].name+"</a></li>").listview('refresh');
 			}
 		},function(){
 			$("#devicelist").html("");
