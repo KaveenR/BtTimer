@@ -41,7 +41,7 @@ function stopTimer(){
 	timer = null;
 }
 function goConf(){
-	bluetoothSerial.isEnable(function(){
+	bluetoothSerial.isEnabled(function(){
 		$.mobile.changepage("#btconf");
 		$("#mac").val(localStorage.getItem("mac"));
 	},
