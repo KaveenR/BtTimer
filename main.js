@@ -46,8 +46,8 @@ function goConf(){
 	bluetoothSerial.isEnabled(function(){
 		$.mobile.changePage("#btconf");
 		bluetoothSerial.list(function(data){
-			for (var i=0;i>data.length;i++){
-				$("#devicelist").add("<a href='#' onClick='connect_bt('"+data[i].address
+			for (var i=0;data.length<i;i++){
+				$("#devicelist").append("<a href='#' onClick='connect_bt('"+data[i].address
 				+"')' >"+data[i].name+"</a>").listview('refresh');
 			}
 		},function(){
