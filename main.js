@@ -1,6 +1,7 @@
 //main.js
 var seconds =0; //timer counter
 var timer = null; //global variable for timer
+var devices;
 // Timing Circuits
 function tick(total,green,orange){
 	seconds += 1;
@@ -45,9 +46,10 @@ function stopTimer(){
 $(document).on("pageshow","#btconf",function(){
 	bluetoothSerial.isEnabled(function(){
 		bluetoothSerial.list(function(data){
+			devices=data;
 			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
-				$("#devicelist").append('<li><a href="#" onClick="connect_b('+data[i].address+')">'+data[i].name+'</li>').listview('refresh');
+				$("#devicelist").append('<li><a href="#" onClick="connect_b('+i+')">'+data[i].name+'</li>').listview('refresh');
 		}
 		$("#devicelist").listview('refresh');
 		},function(){
@@ -62,7 +64,7 @@ $(document).on("pageshow","#btconf",function(){
 });
 function connect_b(id) {
 	alert(id);
-	bluetoothSerial.connect(id,function(){
+	bluetoothSerial.connect(devices[id].address,function(){
 		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
 	},function(){
