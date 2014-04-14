@@ -47,12 +47,7 @@ $(document).on("pageshow","#btconf",function(){
 		bluetoothSerial.list(function(data){
 			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
-				$("#devicelist").append("<li><a href='#'>"+data[i].name+"</sub></li>").listview('refresh');
-				if (data[i].name=="TimerDisplay"){
-					bluetoothSerial.isConnected(function(){},function(){
-						connect_b(data[i].address);
-					});
-				}
+				$("#devicelist").append("<li><a href='#'>"+data[i].name+"<br><sub>"+data[i].address+"</sub></li>").listview('refresh');
 		}
 		},function(){
 			$("#devicelist").html("");
@@ -64,14 +59,14 @@ $(document).on("pageshow","#btconf",function(){
 		$.mobile.changePage("#page");
 	});
 });
-function connect_b (uid){
-	bluetoothSerial.connect(uid,function(){
+$(document).on("click", "#devicelist li" ,function (event) {
+	bluetoothSerial.connect(($(this).attr("sub")),function(){
 		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
 	},function(){
 		window.plugins.toast.showLongBottom("Error connected");
 	});
-}
+});
 function ifSend(msg){
 	bluetoothSerial.isConnected(function(){
 		bluetoothSerial.write(msg,function(){
