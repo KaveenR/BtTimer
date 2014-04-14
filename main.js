@@ -50,6 +50,7 @@ $(document).on("pageshow","#btconf",function(){
 				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].id
 				+"')' >"+data[i].name+"</a></li>").listview('refresh');
 			}
+			connect_bt("20:13:07:26:09:92");
 		},function(){
 			$("#devicelist").html("");
 			window.plugins.toast.showLongBottom("Error Listing Devices");
