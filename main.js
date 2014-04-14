@@ -60,13 +60,14 @@ $(document).on("pageshow","#btconf",function(){
 		$.mobile.changePage("#page");
 	});
 });
-function connect_bt(uid){
+$("#test").on('click', 'li', function(){
 	bluetoothSerial.connect(uid,function(){
 		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
 	},function(){
 		window.plugins.toast.showLongBottom("Error connected");
 	});
+});
 }
 function ifSend(msg){
 	bluetoothSerial.isConnected(function(){
