@@ -1,5 +1,5 @@
 //main.js
-var bluetoothSerial = phonegap.require('bluetoothSerial');
+var bluetoothSerial = coedova.require('bluetoothSerial');
 var seconds =0; //timer counter
 var timer = null; //global variable for timer
 // Timing Circuits
