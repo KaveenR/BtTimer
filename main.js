@@ -45,21 +45,24 @@ function stopTimer(){
 $(document).on("pageshow","#btconf",function(){
 	bluetoothSerial.isEnabled(function(){
 		bluetoothSerial.list(function(data){
+			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
 				$("#devicelist").append("<li><a href='#' onClick='connect_bt('"+data[i].address
 				+"')' >"+data[i].name+"</a></li>").listview('refresh');
 			}
 		},function(){
+			$("#devicelist").html("");
 			window.plugins.toast.showLongBottom("Error Listing Devices");
 		});
 	},
 	function(){
 		window.plugins.toast.showLongBottom("Turn On Bluetooth First");
+		$.bobile.changePage("#page");
 	});
 });
 function connect_bt(uid){
-	bluetoothSerial.connect(uid,function(){
-		window.plugins.toast.showLongBottom("connected");
+	bluetoothSerial.connectInsecure(uid,function(){
+		window.plugins.toast.showLongBottom("Connected");
 		$.mobile.changePage("#page");
 	},function(){
 		window.plugins.toast.showLongBottom("Error connected");
