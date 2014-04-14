@@ -47,9 +47,9 @@ $(document).on("pageshow","#btconf",function(){
 		bluetoothSerial.list(function(data){
 			$("#devicelist").html("");
 			for (var i=0;data.length>i;i++){
-				$("#devicelist").append('<li><a href="#" onClick="connect_b('+data[i].address+')">'+data[i].name+'</li>').listview('refresh',true);
+				$("#devicelist").append('<li><a href="#" onClick="connect_b('+data[i].address+')">'+data[i].name+'</li>').listview('refresh');
 		}
-		
+		$("#devicelist").listview('refresh');
 		},function(){
 			$("#devicelist").html("");
 			window.plugins.toast.showLongBottom("Error Listing Devices");
