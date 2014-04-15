@@ -29,19 +29,19 @@ function read_sec(src){
 }
 //Timer functions
 function startTimer(total,green,orange){
-	ifSend("?");
-	window.plugins.insomnia.keepAwake();
 	$("#page").attr("style","background-color:");
 	if (seconds != null){
 		stopTimer();
 	}
 	seconds =0;
+	window.plugins.insomnia.keepAwake();ifSend("?");
 	timer = setInterval(function(){
 		tick(total,green,orange);
 	},1000);	
 }
 
 function stopTimer(){
+	$("#page").attr("style","background-color:");
 	window.plugins.insomnia.allowSleepAgain();
 	clearInterval(timer);
 	timer = null;
