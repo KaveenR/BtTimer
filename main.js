@@ -29,6 +29,7 @@ function read_sec(src){
 }
 //Timer functions
 function startTimer(total,green,orange){
+	ifSend("?");
 	window.plugins.insomnia.keepAwake();
 	$("#page").attr("style","background-color:");
 	if (seconds != null){

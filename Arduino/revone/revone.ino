@@ -1,5 +1,5 @@
 #include <SoftwareSerial.h>
-SoftwareSerial myserial(11,10);
+SoftwareSerial myserial(11,10); //RX,TX
 char mc;
 boolean g,o,r=false;
 int gp = 9;
