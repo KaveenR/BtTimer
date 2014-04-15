@@ -91,14 +91,6 @@ function disconnect_b(){
 		window.plugins.toast.showLongBottom("FAILED DISCONNECTING");
 	});
 }
-function status(){
-	bluettothSerial.isConnected(function(){
-		$("#status").html("<h4>Connected</h4>");
-	},function(){
-		$("#status").html("<h4>Device not Connected</h4>");
-	});
-}
 //onLoad
 $(document).ready(function(e) {
-	setInterval(status(),1000);
 });
