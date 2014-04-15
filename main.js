@@ -3,6 +3,10 @@ var seconds =0; //timer counter
 var timer = null; //global variable for timer
 var devices;
 // Timing Circuits
+function pad (str, max) {
+  str = str.toString();
+  return str.length < max ? pad("0" + str, max) : str;
+}
 function tick(total,green,orange){
 	seconds += 1;
 	$("#timecode").html(read_sec(seconds));
@@ -25,7 +29,7 @@ function tick(total,green,orange){
 function read_sec(src){
 	var minutes = Math.floor(src / 60);
 	var seconds = (src - minutes*60)
-	return minutes+" : "+seconds;
+	return pad(minutes,2)+" : "+ pad(seconds,2);
 }
 //Timer functions
 function startTimer(total,green,orange){
