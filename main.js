@@ -13,14 +13,17 @@ function tick(total,green,orange){
 	switch (seconds){
 		case green:
 			$("#page").attr("style","background-color:#0C0");
+			ifSend("?");
 			ifSend("G");
 			break;
 		case orange:
 			$("#page").attr("style","background-color:#FF9900");
+			ifSend("?");
 			ifSend("O");
 			break;
 		case total:
 			$("#page").attr("style","background-color:#FF0000");
+			ifSend("?");
 			ifSend("R");
 			break;
 	}
@@ -34,6 +37,7 @@ function read_sec(src){
 //Timer functions
 function startTimer(total,green,orange){
 	$("#page").attr("style","background-color:");
+	ifSend("?");
 	if (seconds != null){
 		stopTimer();
 	}
@@ -46,6 +50,7 @@ function startTimer(total,green,orange){
 
 function stopTimer(){
 	$("#page").attr("style","background-color:");
+	ifSend("?");
 	window.plugins.insomnia.allowSleepAgain();
 	clearInterval(timer);
 	timer = null;
